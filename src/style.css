@@ -1,3 +1,153 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-image: url("clouds.jpg");
+  background-repeat: no-repeat;
+  background-size: 1920px 1080px;
+}
+
+.current-location {
+  text-align: center;
+  font-size: 12px;
+  background-color: rgb(255, 255, 255, -0.1);
+  border: none;
+}
+
+.current-location:hover,
+.current-location:visited,
+.current-location:active,
+.current-location:focus {
+  background-color: rgb(250, 250, 250, -0.1);
+  border: none;
+}
+
+.search-button {
+  background-color: rgb(255, 255, 255, -0.1);
+  border: none;
+}
+
+.search-button:hover,
+.search-button:visited,
+.search-button:active,
+.search-button:focus {
+  background-color: rgb(255, 255, 255, -0.1);
+  border: none;
+}
+
+.city-name {
+  background-color: rgb(255, 255, 255, 0.5);
+  color: #696969;
+}
+
 h1 {
-  color: blue;
+  color: #8e7cce;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 28px;
+  margin: 0;
+}
+
+li {
+  color: #696969;
+  font-size: 18px;
+  font-weight: 100;
+  height: 19px;
+  line-height: 1;
+  list-style: none;
+}
+
+ul {
+  margin: 0 10px;
+  padding: 0;
+}
+
+.weather-elements {
+  font-size: 16px;
+}
+
+.weather-app {
+  border: none;
+  padding: 15px 50px 15px 50px;
+  margin: 30px auto;
+  border-radius: 10px;
+  max-width: 650px;
+  background-color: rgb(255, 255, 255, 0.7);
+  border-color: rgb(255, 255, 255, 0.7);
+}
+
+.weather-icon {
+  font-size: 48px;
+  opacity: 75%;
+}
+
+.temperature {
+  color: #8e7cce;
+  font-size: 60px;
+  font-weight: 550;
+  line-height: 1;
+}
+
+.make-bold {
+  font-weight: bold;
+  color: #8e7cce;
+}
+
+.units {
+  position: relative;
+  top: -32px;
+  font-size: 16px;
+  color: #8e7cce;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #8e7cce;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.day {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: #8e7cce;
+}
+
+.weather-forecast {
+  margin-top: 15px;
+}
+
+.weather-image {
+  font-size: 24px;
+  text-align: center;
+  opacity: 75%;
+}
+
+.temperature-high {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  color: #8e7cce;
+}
+
+.temperature-low {
+  text-align: center;
+  font-size: 16px;
+  color: #696969;
+}
+
+footer {
+  font-size: 12px;
+  margin-top: 25px;
+  text-align: right;
+  color: #696969;
+  font-family: cursive;
+}
+
+#git-link {
+  color: #38aae2;
 }

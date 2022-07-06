@@ -3,21 +3,145 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="src/style.css" />
-    <meta name="viewport" content="width=>, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
   </head>
   <body>
+       
+
     <div class="container">
-      <h1>Hello World</h1>
-      <a href="" class="btn btn-primary">Click here</a>
+        <div class="weather-app">
+            <form class="search-form" id="search-form">
+                <div class="row">
+                    <div class="col-1">
+                <input type="submit" value="📍" id="current-location" class="current-location form-control btn btn-primary"/>
+                </div>
+                    <div class="col-9">
+                <input type="search" placeholder="Type a city..." autofocus="on" autocomplete="off" id="city-input" class="city-name form-control shadow-sm border-0"/>
+                </div>
+                <div class="col-2">
+                <input type="submit" value="🔍" class="search-button form-control btn btn-primary"/>
+                </div>
+            </div>
+            </form>
+      <h1 id="city">
+        
+      </h1>
+      <ul>
+          <li id="date">
+          </li>
+          <li id="description">
+              
+          </li>
+      </ul>
+      <div class="row">
+          <div class="col-6">
+              <div class="clearfix">
+              <p class="weather-icon">🌤</p>
+              <div class="float-left">
+              <span class="temperature" id="temperature"></span><span class="units"><a href="#" id="celsius-link">&deg;C</a> | <a href="#" id="fahrenheit-link">&deg;F</a></span>
+      </div>
+      </div>
+      </div>
+      <div class="col-6">
+          <ul>
+           <li> </li> 
+          </br> 
+          <li> </li> 
+          <li class="weather-elements">
+              Humidity: <span class="make-bold"><span id = "humidity"></span>%</span>
+          </li>
+          <li class="weather-elements">
+              Wind: <span class="make-bold"><span id = "wind"></span> mph</span>
+          </li>
+          </ul>
+          
+      </div>
+      </div>
+
+      <div class="weather-forecast" id="weather-forecast">
+          <div class="row">
+            <div class="col-2">
+              <div class="weather-forecast">
+                <span class="day">Mon</span>
+                <br />
+                <span class="weather-image">☀️</span>
+                <br />
+                <span class="temperature-high">89&deg;</span>
+                <br />
+                <span class="temperature-low">59&deg;</span>
+              </div>
+            </div>
+
+            <div class="col-2">
+              <div class="weather-forecast">
+                <span class="day">Tue</span>
+                <br />
+                <span class="weather-image">🌤</span>
+                <br />
+                <span class="temperature-high">78&deg;</span>
+                <br />
+                <span class="temperature-low">53&deg;</span>
+              </div>
+            </div>
+
+              <div class="col-2">
+              <div class="weather-forecast">
+                <span class="day">Wed</span>
+                <br />
+                <span class="weather-image">🌧</span>
+                <br />
+                <span class="temperature-high">58&deg;</span>
+                <br />
+                <span class="temperature-low">53&deg;</span>
+              </div>
+            </div>
+
+            <div class="col-2">
+              <div class="weather-forecast">
+                <span class="day">Thu</span>
+                <br />
+                <span class="weather-image">☁️</span>
+                <br />
+                <span class="temperature-high">62&deg;</span>
+                <br />
+                <span class="temperature-low">53&deg;</span>
+              </div>
+            </div>
+
+             <div class="col-2">
+              <div class="weather-forecast">
+                <span class="day">Fri</span>
+                <br />
+                <span class="weather-image">☁️</span>
+                <br />
+                <span class="temperature-high">66&deg;</span>
+                <br />
+                <span class="temperature-low">54&deg;</span>
+              </div>
+            </div>
+
+            <div class="col-2">
+              <div class="weather-forecast">
+                <span class="day">Sat</span>
+                <br />
+                <span class="weather-image">🌤</span>
+                <br />
+                <span class="temperature-high">68&deg;</span>
+                <br />
+                <span class="temperature-low">54&deg;</span>
+              </div>
+            </div>
     </div>
+    <footer><a href="https://github.com/sngillard/my-weather-app.git" id="git-link">Open-source code </a>by Sarah Gillard</footer>
     <script src="src/app.js"></script>
   </body>
 </html>
