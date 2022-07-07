@@ -102,12 +102,21 @@ ul {
   color: #8e7cce;
 }
 
+.weather-temperature .active {
+  color: #8e7cce;
+  cursor: default;
+  font-weight: bold;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+
 a:link,
 a:visited,
-a:hover,
-a:active {
+a:hover {
   text-decoration: none;
-  color: #8e7cce;
+  color: #696969;
 }
 
 .search-form {
