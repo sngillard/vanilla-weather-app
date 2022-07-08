@@ -132,6 +132,7 @@ a:hover {
 
 .weather-forecast {
   margin-top: 15px;
+  text-align: center;
 }
 
 .weather-image {
