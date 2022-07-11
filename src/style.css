@@ -7,9 +7,20 @@ body {
 
 .current-location {
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
   background-color: rgb(255, 255, 255, -0.1);
   border: none;
+  padding-top: 10px;
+  text-align: right;
+}
+
+.search-button {
+  background-color: rgb(255, 255, 255, -0.1);
+  border: none;
+  color: #696969;
+  text-align: left;
+  font-size: 16px;
+  padding-top: 10px;
 }
 
 .current-location:hover,
@@ -17,11 +28,6 @@ body {
 .current-location:active,
 .current-location:focus {
   background-color: rgb(250, 250, 250, -0.1);
-  border: none;
-}
-
-.search-button {
-  background-color: rgb(255, 255, 255, -0.1);
   border: none;
 }
 
@@ -36,17 +42,20 @@ body {
 .city-name {
   background-color: rgb(255, 255, 255, 0.5);
   color: #696969;
+  font-size: 16px;
 }
 
 h1 {
   color: #8e7cce;
-  font-size: 26px;
+  font-size: 36px;
   font-weight: bold;
   line-height: 28px;
-  margin: 0;
+  margin-left: 10px;
+  padding-top: 10px;
 }
 
-li {
+li,
+#date {
   color: #696969;
   font-size: 18px;
   font-weight: 100;

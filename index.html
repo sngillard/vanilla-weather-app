@@ -21,33 +21,35 @@
         <div class="weather-app">
             <form class="search-form" id="search-form">
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-2">
                 <input type="submit" value="📍" id="current-location" class="current-location form-control btn btn-primary"/>
                 </div>
-                    <div class="col-9">
+                    <div class="col-8">
                 <input type="search" placeholder="Type a city..." autofocus="on" autocomplete="off" id="city-input" class="city-name form-control shadow-sm border-0"/>
                 </div>
                 <div class="col-2">
-                <input type="submit" value="🔍" id="search-button" class="search-button form-control btn btn-primary"/>
+                <input type="submit" value="Go! 🔍" id="search-button" class="search-button form-control border-0"/>
                 </div>
+
             </div>
             </form>
       <h1 id="city">
         
       </h1>
+      <br/>
       <ul>
-          <li>Last updated: <span id="date"></span>
+          <li class="date">Last updated: </li> <span id="date"></span>
           </li>
-          <li id="description">
-              
-          </li>
+         
       </ul>
       <div class="row">
           <div class="col-6">
               <div class="clearfix weather-temperature">
               <img src="" alt="Clear" id="icon"/>
               <div class="float-left">
-              <span class="temperature" id="temperature"></span><span class="units"><a href="#" id="celsius-link" class="active">&deg;C</a> | <a href="#" id="fahrenheit-link">&deg;F</a></span>
+              <span class="temperature" id="temperature"></span>
+              <span class="units"> <a href="#" id="fahrenheit-link" class="active">&deg;F</a> |
+                 <a href="#" id="celsius-link">&deg;C</a></span>
       </div>
       </div>
       </div>
@@ -56,11 +58,14 @@
            <li> </li> 
           </br> 
           <li> </li> 
+           <li id="description">
+              
+          </li>
           <li class="weather-elements">
               Humidity: <span class="make-bold"><span id = "humidity"></span>%</span>
           </li>
           <li class="weather-elements">
-              Wind: <span class="make-bold"><span id = "wind"></span> km/h</span>
+              Wind: <span class="make-bold"><span id = "wind"></span> mph</span>
           </li>
           </ul>
           
