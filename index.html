@@ -16,9 +16,9 @@
   </head>
   <body>
        
-
-    <div class="container">
+<div class="container">
         <div class="weather-app">
+
             <form class="search-form" id="search-form">
                 <div class="row">
                     <div class="col-2">
@@ -30,57 +30,62 @@
                 <div class="col-2">
                 <input type="submit" value="Go! 🔍" id="search-button" class="search-button form-control border-0"/>
                 </div>
-
             </div>
             </form>
+            
       <h1 id="city">
-        
       </h1>
-      <br/>
-      <ul>
-          <li class="date">Last updated: </li> <span id="date"></span>
-          </li>
-         
-      </ul>
+    
+      <span class="date">Updated: </span> <span class = "date" id="date"></span>
+
+    </br>
+    <h5>Today's Forecast</h5>
+
+
       <div class="row">
           <div class="col-6">
-              <div class="clearfix weather-temperature">
-              <img src="" alt="Clear" id="icon"/>
-              <div class="float-left">
+              <div class="weather-temperature">
+            
               <span class="temperature" id="temperature"></span>
               <span class="units"> <a href="#" id="fahrenheit-link" class="active">&deg;F</a> |
                  <a href="#" id="celsius-link">&deg;C</a></span>
-      </div>
-      </div>
-      </div>
-      <div class="col-6">
-          <ul>
-           <li> </li> 
-          </br> 
-          <li> </li> 
-           <li id="description">
-              
-          </li>
-          <li class="weather-elements">
-              Humidity: <span class="make-bold"><span id = "humidity"></span>%</span>
-          </li>
-          <li class="weather-elements">
-              Wind: <span class="make-bold"><span id = "wind"></span> mph</span>
-          </li>
-          </ul>
-          
-      </div>
+          </div>
       </div>
 
-  
+
+<div class="col-6">
+              <img src="" alt="Clear" class="current-icon" id="icon"/> 
+    </div>
+
+
+<div class="row">
+    <div class="col-8">
+        <ul>
+            <li class="weather-elements">Real Feel <span class="make-bold"><span id="real-feel"></span>&deg;F</span> </li>
+            <li class="weather-elements">High <span class="make-bold"><span id="todays-high"></span>&deg;F</span> </li>
+            <li class="weather-elements">Low <span class="make-bold"><span id="todays-low"></span>&deg;F</span> </li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <ul>
+            <li class="weather-elements"><span id="description"></span> </li>
+<li class="weather-elements">Humidity <span class="make-bold"><span id="humidity"></span>%</span> </li>
+<li class="weather-elements">Wind <span class="make-bold"><span id="wind"></span> mph</span> </li>
+        </ul>
+    </div>
+</div>
+
+forecast was here but stopped showing :(
 
       <div class="weather-forecast forecast" id="forecast">
-         
-            
+
     </div>
+    
+    
   
 
     <footer><a href="https://github.com/sngillard/vanilla-weather-app" id="git-link">Open-source code </a>by Sarah Gillard</footer>
-    <script src="src/app.js"></script>
+    <script src="src/index.js"></script>
+    </div>
   </body>
 </html>

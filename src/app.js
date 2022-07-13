@@ -2,8 +2,8 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
-  if (hours < 10) {
-    hours = `${hours}`;
+  if (hours > 12) {
+    hours = `${hours - 12}`;
   }
   let minutes = date.getMinutes();
   if (minutes < 10) {
@@ -38,11 +38,11 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
+  let days = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu"];
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index > 0 && index < 7) {
       forecastHTML =
         forecastHTML +
         `
@@ -82,11 +82,15 @@ function getForecast(coordinates) {
 
 //this function shows the current forecast at the top of the app (not the six day forecast)
 function displayTemperature(response) {
+  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+  let feelsLikeElement = document.querySelector("#real-feel");
+  let todaysHighElement = document.querySelector("#todays-high");
+  let todaysLowElement = document.querySelector("#todays-low");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
@@ -97,6 +101,9 @@ function displayTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+  todaysHighElement.innerHTML = Math.round(response.data.main.temp_max);
+  todaysLowElement.innerHTML = Math.round(response.data.main.temp_min);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
@@ -110,7 +117,7 @@ function displayTemperature(response) {
 
 //this function connnects the api information for a typed city
 function search(city) {
-  let apiKey = "d39dbaacbf9289ab2454aa17a19d8eb5";
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
 }
