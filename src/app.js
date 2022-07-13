@@ -1,3 +1,4 @@
+// this function gets the current day and time
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -22,6 +23,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+// this function formats the day of week and time
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -30,6 +32,7 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+//this function displays a six day forecast
 function displayForecast(response) {
   let forecast = response.data.daily;
 
@@ -70,14 +73,14 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
+//this function connects the api data for the forecast
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
-  axios.get(apiUrl).then(displayForecast);
 }
 
+//this function shows the current forecast at the top of the app (not the six day forecast)
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -99,33 +102,27 @@ function displayTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  //next four lines are for adding images to folder
-  iconElement.setAttribute(
-    "alt",
-    `src/images/${response.data.weather[0].icon}.svg`
-  );
+
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.coord);
 }
 
+//this function connnects the api information for a typed city
 function search(city) {
   let apiKey = "d39dbaacbf9289ab2454aa17a19d8eb5";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-}
-
+//this function allows a typed city to be searched with search-button
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
 
+//this function displays the current temperature in degrees celsius via C link
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -135,6 +132,7 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+//this function displays the current temperature in degrees fahrenheit via F link
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -143,18 +141,15 @@ function displayFahrenheitTemperature(event) {
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
-let fahrenheitTemperature = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitTemperature = null;
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let currentLocationButton = document.querySelector("#current-location");
-currentLocationButton.addEventListener("click", getCurrentLocation);
 
 search("Boston");
