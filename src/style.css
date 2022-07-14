@@ -29,6 +29,7 @@ body {
 .current-location:focus {
   background-color: rgb(250, 250, 250, -0.1);
   border: none;
+  outline: 0 !important;
 }
 
 .search-button:hover,
@@ -37,6 +38,7 @@ body {
 .search-button:focus {
   background-color: rgb(255, 255, 255, -0.1);
   border: none;
+  outline: 0 !important;
 }
 
 .city-name {

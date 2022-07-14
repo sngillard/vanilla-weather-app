@@ -131,6 +131,8 @@ function handleSubmit(event) {
 
 function showPosition(position) {
   console.log(position);
+  let searchButtonElement = document.querySelector("#search-button");
+  search(searchButtonElement.value);
 }
 
 navigator.geolocation.getCurrentPosition(showPosition);
