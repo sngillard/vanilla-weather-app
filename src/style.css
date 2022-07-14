@@ -57,28 +57,14 @@ h1 {
   font-size: 14px;
 }
 
-h5 {
+p {
   color: #8e7cce;
   font-size: 18px;
   font-weight: bold;
-  line-height: 28px;
   margin-left: 10px;
   padding-top: 10px;
+  margin-bottom: 0px;
   text-align: center;
-}
-
-/* Container holding the image and the text */
-.container-icon {
-  position: relative;
-  text-align: center;
-  color: #696969;
-}
-
-/* Bottom left text */
-.bottom-left {
-  position: relative;
-  text-align: left;
-  bottom: 10px;
 }
 
 li {
@@ -88,6 +74,7 @@ li {
   height: 19px;
   line-height: 1;
   list-style: none;
+  text-align: center;
 }
 
 li:first-letter {
@@ -99,14 +86,9 @@ ul {
   padding: 0;
 }
 
-.currently,
 .description,
 .date {
   font-size: 14px;
-  color: #696969;
-}
-
-hr {
   color: #696969;
 }
 
@@ -145,6 +127,10 @@ hr {
   top: -27px;
   font-size: 14px;
   color: #8e7cce;
+}
+
+.weather-temperature {
+  text-align: center;
 }
 
 .weather-temperature .active {
@@ -202,7 +188,7 @@ a:hover {
 footer {
   font-size: 12px;
   margin-top: 25px;
-  text-align: right;
+  text-align: left;
   color: #696969;
   font-family: cursive;
 }

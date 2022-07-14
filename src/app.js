@@ -75,7 +75,7 @@ function displayForecast(response) {
 
 //this function connects the api data for the forecast
 function getForecast(coordinates) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "0bad4315e2bbb02795a47ba528cdb573";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
@@ -117,7 +117,7 @@ function displayTemperature(response) {
 
 //this function connnects the api information for a typed city
 function search(city) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "0bad4315e2bbb02795a47ba528cdb573";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -128,6 +128,12 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+
+function showPosition(position) {
+  console.log(position);
+}
+
+navigator.geolocation.getCurrentPosition(showPosition);
 
 //this function displays the current temperature in degrees celsius via C link
 function displayCelsiusTemperature(event) {
