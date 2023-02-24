@@ -1,6 +1,6 @@
 body {
   font-family: "Courier New", Courier, monospace;
-  background-image: url("images/clouds.jpg");
+  background-image: url("/images/clouds.jpg");
   background-repeat: no-repeat;
   background-size: 1920px 1080px;
 }
