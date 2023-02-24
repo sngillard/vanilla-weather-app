@@ -1,6 +1,6 @@
 body {
   font-family: "Courier New", Courier, monospace;
-  background-image: url("clouds.jpg");
+  background-image: url("images/clouds.jpg");
   background-repeat: no-repeat;
   background-size: 1920px 1080px;
 }
@@ -195,4 +195,241 @@ footer {
 
 #git-link {
   color: #8e7cce;
+}
+
+/* Media Query for iphone XR, Galaxy A51/71, Galaxy S20 Ultra */
+@media (max-width: 480px) {
+  .current-location {
+    font-size: 12px;
+  }
+
+  .search-button {
+    font-size: 12px;
+  }
+
+  .city-name {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .date {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .description,
+  .date {
+    font-size: 12px;
+  }
+
+  .weather-elements {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .temperature {
+    font-size: 42px;
+  }
+
+  .weather-image {
+    width: 32px;
+  }
+
+  #icon {
+    margin-top: 10px;
+    width: 90px;
+  }
+
+  .units {
+    top: -21px;
+    font-size: 10px;
+  }
+
+  .day {
+    font-size: 16px;
+  }
+
+  .weather-image {
+    font-size: 10px;
+  }
+
+  .temperature-high {
+    font-size: 14px;
+  }
+
+  .temperature-low {
+    font-size: 12px;
+  }
+
+  footer {
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+/* Media Query for iPhone SE, iPhone XR Pro, Pixel5 */
+@media (max-width: 400px) {
+  .current-location {
+    font-size: 10px;
+  }
+
+  .search-button {
+    font-size: 10px;
+  }
+
+  .city-name {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  .description,
+  .date {
+    font-size: 10px;
+  }
+
+  .weather-elements {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .temperature {
+    font-size: 40px;
+  }
+
+  .weather-image {
+    width: 30px;
+  }
+
+  #icon {
+    margin-top: 8px;
+    width: 80px;
+  }
+
+  .units {
+    top: -21px;
+    font-size: 10px;
+  }
+
+  .day {
+    font-size: 14px;
+  }
+
+  /* .weather-image {
+    font-size: 10px;
+  }
+  */
+
+  .temperature-high {
+    font-size: 12px;
+  }
+
+  .temperature-low {
+    font-size: 10px;
+  }
+
+  footer {
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+/* Media Query for smallest phones, like Galaxy Fold */
+@media (max-width: 300px) {
+  .current-location {
+    font-size: 8px;
+    padding-top: 5px;
+    text-align: left;
+  }
+
+  .search-button {
+    font-size: 8px;
+    padding-top: 5px;
+    text-align: left;
+  }
+
+  .city-name {
+    font-size: 8px;
+    padding-top: 5px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .date {
+    font-size: 10px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  .description,
+  .date {
+    font-size: 8px;
+    margin-bottom: 5px;
+  }
+
+  .weather-elements {
+    font-size: 8px;
+    margin-bottom: 5px;
+  }
+
+  .temperature {
+    font-size: 18px;
+  }
+
+  .weather-image {
+    width: 27px;
+    text-align: center;
+  }
+
+  #icon {
+    margin-top: 10px;
+    width: 60px;
+  }
+
+  .units {
+    top: -8px;
+    font-size: 8px;
+  }
+
+  .day {
+    font-size: 12px;
+  }
+
+  .weather-image {
+    font-size: 10px;
+  }
+
+  .temperature-high {
+    font-size: 12px;
+  }
+
+  .temperature-low {
+    font-size: 10px;
+  }
+
+  footer {
+    font-size: 8px;
+    text-align: center;
+  }
 }
