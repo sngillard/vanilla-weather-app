@@ -58,10 +58,10 @@ function displayForecast(response) {
        />
        <div class="weather-forecast-temperatures">
          <span class="temperature-high"> ${Math.round(
-           forecastDay.temp.max
+           forecastDay.temp.max,
          )}&deg; </span>
          <span class="temperature-low"> ${Math.round(
-           forecastDay.temp.min
+           forecastDay.temp.min,
          )}&deg; </span>
        </div>
      </div>
@@ -76,14 +76,16 @@ function displayForecast(response) {
 //this function connects the api data for the forecast
 function getForecast(coordinates) {
   let apiKey = "0bad4315e2bbb02795a47ba528cdb573";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${unit}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
 //this function connnects the api information for a typed city
 function search(city) {
+  currentCity = city;
+
   let apiKey = "0bad4315e2bbb02795a47ba528cdb573";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -104,7 +106,7 @@ function showPosition(position) {
 
 function relativePosition(position) {
   let apiKey = "0bad4315e2bbb02795a47ba528cdb573";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unit}`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemperature);
 }
 
@@ -116,6 +118,9 @@ function getCurrentLocation(event) {
 //this function shows the current forecast at the top of the app (not the six day forecast)
 function displayTemperature(response) {
   console.log(response.data);
+
+  currentCity = response.data.name;
+
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let feelsLikeElement = document.querySelector("#real-feel");
@@ -129,6 +134,9 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
 
   fahrenheitTemperature = response.data.main.temp;
+  fahrenheitFeelsLike = response.data.main.feels_like;
+  fahrenheitHigh = response.data.main.temp_max;
+  fahrenheitLow = response.data.main.temp_min;
 
   cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -142,7 +150,7 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
   );
 
   iconElement.setAttribute("alt", response.data.weather[0].description);
@@ -153,20 +161,24 @@ function displayTemperature(response) {
 //this function displays the current temperature in degrees celsius via C link
 function displayCelsiusTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
+
+  unit = "metric";
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
-  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  search(currentCity);
 }
 
 //this function displays the current temperature in degrees fahrenheit via F link
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
+
+  unit = "imperial";
+
   fahrenheitLink.classList.add("active");
   celsiusLink.classList.remove("active");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+  search(currentCity);
 }
 
 let form = document.querySelector("#search-form");
@@ -176,6 +188,13 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 let fahrenheitTemperature = null;
+let fahrenheitFeelsLike = null;
+let fahrenheitHigh = null;
+let fahrenheitLow = null;
+let forecastData = null;
+
+let unit = "imperial";
+let currentCity = "Boston";
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
